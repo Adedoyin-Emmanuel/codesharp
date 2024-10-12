@@ -3,6 +3,17 @@
   "displayName": "codesharp",
   "description": "CodeSharp - A VSCode extension for creating C# files with ease. Generate classes, interfaces, structs, and more with just a click.",
   "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "Adedoyin Emmanuel Adeniyi",
+  "author": {
+    "name": "Adedoyin Emmanuel Adeniyi",
+    "email": "hi@adedoyinemmanuel.dev",
+    "url": "https://adedoyinemmanuel.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adedoyin-emmanuel/codesharp"
+  },
   "engines": {
     "vscode": "^1.94.0"
   },
