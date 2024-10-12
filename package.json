@@ -18,17 +18,50 @@
     "vscode": "^1.94.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Snippets",
+    "Keymaps"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:csharp",
+    "onCommand:codesharp.createClass",
+    "onCommand:codesharp.createInterface",
+    "onCommand:codesharp.createEnum",
+    "onCommand:codesharp.createRecord",
+    "onCommand:codesharp.createStruct"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "codesharp.helloWorld",
-        "title": "Hello World"
+        "command": "codesharp.createClass",
+        "title": "Create A New C# Class"
+      },
+      {
+        "command": "codesharrp.createInterface",
+        "title": "Create A New C# Interface"
+      },
+      {
+        "command": "codesharp.createRecord",
+        "title": "Create A New C# Record"
+      },
+      {
+        "command": "codesharp.createEnum",
+        "title": "Create A New C# Enum"
+      },
+
+      {
+        "command":"codesharp.createStruct",
+        "title": "Create A New C# Struct"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "group": ""
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
