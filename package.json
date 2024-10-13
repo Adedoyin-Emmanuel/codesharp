@@ -24,11 +24,8 @@
   ],
   "activationEvents": [
     "onLanguage:csharp",
-    "onCommand:codesharp.createClass",
-    "onCommand:codesharp.createInterface",
-    "onCommand:codesharp.createEnum",
-    "onCommand:codesharp.createRecord",
-    "onCommand:codesharp.createStruct"
+    "onLanguage:aspnetcorerazor",
+    "onLanguage:razor"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -38,7 +35,7 @@
         "title": "Create A New C# Class"
       },
       {
-        "command": "codesharrp.createInterface",
+        "command": "codesharp.createInterface",
         "title": "Create A New C# Interface"
       },
       {
@@ -49,19 +46,48 @@
         "command": "codesharp.createEnum",
         "title": "Create A New C# Enum"
       },
-
       {
-        "command":"codesharp.createStruct",
+        "command": "codesharp.createStruct",
         "title": "Create A New C# Struct"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "group": ""
+          "submenu": "codesharp.newFileSubMenu",
+          "group": "navigation@1",
+          "when": "resourceLangId == csharp || resourceLangId == aspnetcorerazor || resourceExtname == .cs || resourceExtname == .cshtml || resourceExtname == .razor || resourceFilename == global.json || resourceFilename =~ /.*\\.csproj$/ || resourceFilename == dotnet-tools.json || resourceExtname == .sln || explorerResourceIsFolder"
+        }
+      ],
+      "codesharp.newFileSubMenu": [
+        {
+          "command": "codesharp.createClass",
+          "group": "1_create"
+        },
+        {
+          "command": "codesharp.createInterface",
+          "group": "1_create"
+        },
+        {
+          "command": "codesharp.createRecord",
+          "group": "1_create"
+        },
+        {
+          "command": "codesharp.createEnum",
+          "group": "1_create"
+        },
+        {
+          "command": "codesharp.createStruct",
+          "group": "1_create"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "codesharp.newFileSubMenu",
+        "label": "New C# File"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
