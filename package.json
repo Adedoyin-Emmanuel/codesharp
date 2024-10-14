@@ -2,7 +2,7 @@
   "name": "codesharp",
   "displayName": "Codesharp",
   "description": "CodeSharp - A VSCode extension for creating C# files with ease. Generate classes, interfaces, structs, and more with just a click.",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "publisher": "AdedoyinEmmanuel",
   "icon": "./images/logo.png",
