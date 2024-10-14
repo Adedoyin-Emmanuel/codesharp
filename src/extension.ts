@@ -9,8 +9,6 @@ import { createFileType } from "./utils";
 import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log("CodeSharp is now active!");
-
   const commands = [
     { command: CREATE_CLASS_COMMAND, options: { type: "class" } },
     {
