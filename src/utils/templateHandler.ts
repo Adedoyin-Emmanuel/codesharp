@@ -12,8 +12,16 @@ export async function loadTemplate(templateName: string): Promise<string> {
     TEMPLATE_DIR,
     `${templateName.toLowerCase()}.cs.template`
   );
+
+  const alternateTemplatePath = path.join(
+    vscode.extensions.getExtension("adedoyin-emmanuel.codessharp")!
+      .extensionPath,
+    TEMPLATE_DIR,
+    `${templateName.toLowerCase()}.cs.template`
+  );
+  const legitTemplatePath = templatePath || alternateTemplatePath;
   try {
-    return await fs.readFile(templatePath, "utf8");
+    return await fs.readFile(legitTemplatePath, "utf8");
   } catch (error: any) {
     throw new Error(`Failed to load template: ${error.message}`);
   }
