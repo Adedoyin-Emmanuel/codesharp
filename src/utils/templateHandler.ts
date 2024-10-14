@@ -12,8 +12,6 @@ export async function loadTemplate(templateName: string): Promise<string> {
     TEMPLATE_DIR,
     `${templateName.toLowerCase()}.cs.template`
   );
-  console.log(`Loading template from: ${templatePath}`);
-
   try {
     return await fs.readFile(templatePath, "utf8");
   } catch (error: any) {
@@ -32,9 +30,6 @@ export function processTemplate(
 
   const cursorPosition = getCursorPosition(processedTemplate);
   processedTemplate = processedTemplate.replace(CURSOR_PLACEHOLDER, "");
-
-  console.log("Logging Cursor Position");
-  console.log(cursorPosition);
 
   return { content: processedTemplate, cursorPosition };
 }
