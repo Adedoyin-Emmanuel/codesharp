@@ -53,3 +53,11 @@ CodeSharp is [MIT-licensed](LICENSE) open-source software by [Adedoyin Emmanuel 
 <a href="https://github.com/Adedoyin-Emmanuel/codesharp/graphs/contributors">
    <img src="https://contrib.rocks/image?repo=adedoyin-emmanuel/codesharp"/>
 </a>
+
+## Author 👨
+
+Hi there. I'm Adedoyin Emmanuel Adeniyi, a Software Engineer. I built CodeSharp to ease my C# projects development. I found myself manually creating classes and then manually writing the namespace although I expected the https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit
+
+My Portfolio <https://adedoyinemmanuel.dev>
+
+You can contact me via <hi@adedoyinemmanuel.dev>
