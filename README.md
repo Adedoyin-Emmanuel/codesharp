@@ -24,7 +24,7 @@ This behavior makes CodeSharp lightweight and highly optimized for C# developers
 1. Open Visual Studio Code.
 2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar or pressing `Ctrl+Shift+X` or `CMD+Shift+X` if your're on a Mac.
 3. Search for CodeSharp and click Install.
-4. Alternatively, you can install the extension directly from the [VsCode Marketplace](https://marketplace.visualstudio.com).
+4. Alternatively, you can install the extension directly from the [VsCode Marketplace](https://marketplace.visualstudio.com/manage/publishers/adedoyinemmanuel/extensions/codesharp/hub?_a=acquisition).
 
 ### Usage 🧰
 
