@@ -13,13 +13,13 @@ export async function loadTemplate(templateName: string): Promise<string> {
     `${templateName.toLowerCase()}.cs.template`
   );
 
-  const alternateTemplatePath = path.join(
-    vscode.extensions.getExtension("adedoyin-emmanuel.codessharp")!
-      .extensionPath,
-    TEMPLATE_DIR,
-    `${templateName.toLowerCase()}.cs.template`
-  );
-  const legitTemplatePath = templatePath || alternateTemplatePath;
+  // const alternateTemplatePath = path.join(
+  //   vscode.extensions.getExtension("adedoyin-emmanuel.codessharp")!
+  //     .extensionPath,
+  //   TEMPLATE_DIR,
+  //   `${templateName.toLowerCase()}.cs.template`
+  // );
+  const legitTemplatePath = templatePath;
   try {
     return await fs.readFile(legitTemplatePath, "utf8");
   } catch (error: any) {

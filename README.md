@@ -1,71 +1,53 @@
-# codesharp README
+# CodeSharp 🎖️
 
-This is the README for your extension "codesharp". After writing up a brief description, we recommend including the following sections.
+Code Sharp is a [VsCode](https://code.visualstudio.com) extension tailored for .NET developers, designed to simplify the creation of C# files through customizable templates. Whether you’re working with classes, interfaces, or other file types, CodeSharp automates repetitive tasks, allowing you to focus on writing great code. Codesharp also adds automatically adds your project namespace to the file generated.
 
-## Features
+## Features 🔧
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. **Template-based file generation**: Generate C# files like classes, interfaces, or custom types using pre-defined or user-configured templates.
+2. **Namespace handling**: Automatically derive the correct namespace based on your project structure.
+3. **Intelligent file placement**: Files are generated in the currently active folder, with a fallback to the project’s root directory if no specific folder is selected.
+4. **Smart C# File Detection**: Intelligently activates and provides C# file templates only when you're working on a C# or .NET project. This ensures
 
-For example if there is an image subfolder under your extension project workspace:
+- **Automatic Detection**: The extension will detect if you're working within a C#-related environment (i.e., when .cs, .csproj, .sln, or other related files are present).
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Selective Loading**: If you're working outside of a C# or .NET project, CodeSharp stays idle, ensuring that it doesn't clutter your workspace or consume unnecessary resources.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+This behavior makes CodeSharp lightweight and highly optimized for C# developers, while staying out of the way for non-C# projects.
 
-## Requirements
+## Getting Started 🏃
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Installation 💽
 
-## Extension Settings
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar or pressing `Ctrl+Shift+X` or `CMD+Shift+X` if your're on a Mac.
+3. Search for CodeSharp and click Install.
+4. Alternatively, you can install the extension directly from the [VsCode Marketplace](https://marketplace.visualstudio.com).
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### Usage 🧰
 
-For example:
+1. Right-click on a folder or within the file explorer and select "New C# File". ![alt text](image-1.png)
+2. Choose the type of file you want to generate (e.g., Class, Interface, etc.).
+3. Enter the desired name for the file.
+4. The file will be generated in the selected folder with the correct namespace and template content.
 
-This extension contributes the following settings:
+You can also use the command panel pressing `Ctrl+Shift+P` or `CMD+Shift+P` if you're on a Mac. And then search `Create A New C#` this will bring up several options, you can the choose the type you want. Check the image below![alt text](image.png)
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Contributing 🤝
 
-## Known Issues
+First off, thanks for taking the time to contribute!
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+1. Star the repository, you can then create a fork
+2. Clone your fork. Install the dependencies.
+3. Create a branch for your feature (You can as well create an issue on that, so you can link it to your PR)
+4. Commit your changes and push (Please give a descriptive message)
+5. Submit your PR
+6. Wait for your PR to be reviewed and merged
 
-## Release Notes
+## License 📖
 
-Users appreciate release notes as you update your extension.
+CodeSharp is [MIT-licensed](LICENSE) open-source software by [Adedoyin Emmanuel Adeniyi](https://github.com/adedoyin-emmanuel) and [contributors](https://github.com/adedoyin-emmanuel/codesharp/graphs/contributors):
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+<a href="https://github.com/Adedoyin-Emmanuel/codesharp/graphs/contributors">
+   <img src="https://contrib.rocks/image?repo=adedoyin-emmanuel/codesharp"/>
+</a>
