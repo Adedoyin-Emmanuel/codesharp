@@ -1,7 +1,6 @@
 import {
   CREATE_CLASS_COMMAND,
   CREATE_ENUM_COMMAND,
-  CREATE_FILE_COMMAND,
   CREATE_INTERFACE_COMMAND,
   CREATE_RECORD_COMMAND,
   CREATE_STRUCT_COMMAND,
@@ -25,9 +24,9 @@ export function activate(context: vscode.ExtensionContext) {
 
   commands.forEach(({ command, options }) => {
     context.subscriptions.push(
-      vscode.commands.registerCommand(command, (uri: vscode.Uri) =>
-        createFileType(options, uri)
-      )
+      vscode.commands.registerCommand(command, (uri: vscode.Uri) => {
+        createFileType(options, uri);
+      })
     );
   });
 }
