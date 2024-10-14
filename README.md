@@ -1,5 +1,7 @@
 # CodeSharp 🎖️
 
+[![wakatime](https://wakatime.com/badge/github/Adedoyin-Emmanuel/codesharp.svg)](https://wakatime.com/badge/github/Adedoyin-Emmanuel/codesharp)
+
 Code Sharp is a [VsCode](https://code.visualstudio.com) extension tailored for .NET developers, designed to simplify the creation of C# files through customizable templates. Whether you’re working with classes, interfaces, or other file types, CodeSharp automates repetitive tasks, allowing you to focus on writing great code. Codesharp also adds automatically adds your project namespace to the file generated.
 
 ## Features 🔧
