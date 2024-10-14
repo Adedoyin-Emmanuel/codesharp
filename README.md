@@ -26,12 +26,12 @@ This behavior makes CodeSharp lightweight and highly optimized for C# developers
 
 ### Usage 🧰
 
-1. Right-click on a folder or within the file explorer and select "New C# File". ![alt text](image-1.png)
+1. Right-click on a folder or within the file explorer and select "New C# File". ![Context Menu Illustration](./md/image-1.png)
 2. Choose the type of file you want to generate (e.g., Class, Interface, etc.).
 3. Enter the desired name for the file.
 4. The file will be generated in the selected folder with the correct namespace and template content.
 
-You can also use the command panel pressing `Ctrl+Shift+P` or `CMD+Shift+P` if you're on a Mac. And then search `Create A New C#` this will bring up several options, you can the choose the type you want. Check the image below![alt text](image.png)
+You can also use the command panel pressing `Ctrl+Shift+P` or `CMD+Shift+P` if you're on a Mac. And then search `Create A New C#` this will bring up several options, you can the choose the type you want. Check the image below![Command Panel Illustration](./md/image.png)
 
 ## Contributing 🤝
 
