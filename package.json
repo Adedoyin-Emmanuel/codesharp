@@ -109,11 +109,6 @@
     "@vscode/test-electron": "^2.4.1"
   },
   "dependencies": {
-    "@types/find-up": "^4.0.0",
-    "@types/uuid": "^10.0.0",
-    "find-up": "^7.0.0",
-    "find-up-glob": "^1.0.0",
-    "handlebars": "^4.7.8",
-    "uuid": "^10.0.0"
+    "find-up-glob": "^1.0.0"
   }
 }
