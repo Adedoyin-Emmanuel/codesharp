@@ -28,6 +28,8 @@ This behavior makes CodeSharp lightweight and highly optimized for C# developers
 
 ### Usage 🧰
 
+Before using CodeSharp, make sure you're in a C# or .NET related workspace. Otherwise it wouldn't work. See why [Here](##Features)
+
 1. Right-click on a folder or within the file explorer and select "New C# File". ![Context Menu Illustration](./md/image-1.png)
 2. Choose the type of file you want to generate (e.g., Class, Interface, etc.).
 3. Enter the desired name for the file.
@@ -56,8 +58,10 @@ CodeSharp is [MIT-licensed](LICENSE) open-source software by [Adedoyin Emmanuel 
 
 ## Author 👨
 
-Hi there. I'm Adedoyin Emmanuel Adeniyi, a Software Engineer. I built CodeSharp to ease my C# projects development. I found myself manually creating classes and then manually writing the namespace although I expected the https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit
+Hi there. I'm Adedoyin Emmanuel Adeniyi, a Software Engineer. I built CodeSharp to ease my C# projects development. I found myself manually creating classes, interfaces and then manually writing the namespace although I expected the [C# VsCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) to allow devs create C# files types like classes, interfaces etc from the file explorer context menu but this isn't in place. That's why I built CodeSharp. The name was inspired my the term `code` and `sharp` from `csharp`.
 
 My Portfolio <https://adedoyinemmanuel.dev>
 
 You can contact me via <hi@adedoyinemmanuel.dev>
+
+See my other Projects here <https://github.com/adedoyin-emmanuel>
