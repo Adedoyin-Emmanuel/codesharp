@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import * as fs from "fs/promises";
 import * as path from "path";
-import * as findUp from "find-up";
+import * as findUpGlob from "find-up-glob";
 import { loadTemplate, processTemplate } from "./templateHandler";
 
 export async function createFileType(
@@ -32,9 +32,11 @@ export async function createFileType(
     );
 
     const template = await loadTemplate(type.toLowerCase());
-    const fileContent = processTemplate(template, namespace, fileName);
+    const fileContentObj = processTemplate(template, namespace, fileName);
+    const fileContent = fileContentObj.content;
+    const cursorPosition = fileContentObj.cursorPosition;
 
-    await createFile(filePath, fileContent, type, fileName);
+    await createFile(filePath, fileContent, type, fileName, cursorPosition);
   } catch (error: any) {
     vscode.window.showErrorMessage(`Error creating file: ${error.message}`);
   }
@@ -71,9 +73,9 @@ function validateFileName(value: string, prefix: string): string | null {
 }
 
 async function findProjectFile(directory: string): Promise<string> {
-  const projectFile = await findUp("*.csproj", { cwd: directory });
+  const projectFile = findUpGlob.sync("*.csproj", { cwd: directory });
   if (!projectFile) throw new Error("Unable to find *.csproj file");
-  return projectFile;
+  return projectFile[0];
 }
 
 async function deriveNamespace(
@@ -99,11 +101,15 @@ async function createFile(
   filePath: string,
   fileContent: string,
   type: string,
-  fileName: string
+  fileName: string,
+  cursorPosition: vscode.Position
 ): Promise<void> {
   await fs.writeFile(filePath, fileContent);
   vscode.window.showInformationMessage(`Created new ${type}: ${fileName}`);
   console.log(`File created at: ${filePath}`);
-  const doc = await vscode.workspace.openTextDocument(filePath);
-  await vscode.window.showTextDocument(doc);
+  await vscode.workspace.openTextDocument(filePath).then((content) => {
+    vscode.window.showTextDocument(content).then((editor) => {
+      editor.selection = new vscode.Selection(cursorPosition, cursorPosition);
+    });
+  });
 }
