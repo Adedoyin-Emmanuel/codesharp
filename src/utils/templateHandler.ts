@@ -3,14 +3,20 @@ import * as path from "path";
 
 const TEMPLATE_DIR = "templates";
 
-export function loadTemplate(templateName: string): string {
+export async function loadTemplate(templateName: string): Promise<string> {
   const templatePath = path.join(
     __dirname,
     "..",
     TEMPLATE_DIR,
     `${templateName.toLowerCase()}.cs.template`
   );
-  return fs.readFileSync(templatePath, "utf8");
+  console.log(`Loading template from: ${templatePath}`);
+
+  try {
+    return await fs.promises.readFile(templatePath, "utf8");
+  } catch (error: any) {
+    throw new Error(`Failed to load template: ${error.message}`);
+  }
 }
 
 export function processTemplate(

@@ -2,7 +2,6 @@ import * as vscode from "vscode";
 import {
   CREATE_CLASS_COMMAND,
   CREATE_ENUM_COMMAND,
-  CREATE_FILE_COMMAND,
   CREATE_INTERFACE_COMMAND,
   CREATE_RECORD_COMMAND,
   CREATE_STRUCT_COMMAND,
@@ -10,38 +9,26 @@ import {
 import { createFileType } from "./utils";
 
 export function activate(context: vscode.ExtensionContext) {
-  vscode.window.showInformationMessage("CodeSharp extension is now active!");
+  console.log("CodeSharp is now active!");
 
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      CREATE_CLASS_COMMAND,
-      createFileType.bind(null, { type: "Class" })
-    )
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      CREATE_INTERFACE_COMMAND,
-      createFileType.bind(null, { type: "Interface", prefix: "I" })
-    )
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      CREATE_ENUM_COMMAND,
-      createFileType.bind(null, { type: "Enum" })
-    )
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      CREATE_RECORD_COMMAND,
-      createFileType.bind(null, { type: "Record" })
-    )
-  );
-  context.subscriptions.push(
-    vscode.commands.registerCommand(
-      CREATE_STRUCT_COMMAND,
-      createFileType.bind(null, { type: "Struct" })
-    )
-  );
+  const commands = [
+    { command: CREATE_CLASS_COMMAND, options: { type: "class" } },
+    {
+      command: CREATE_INTERFACE_COMMAND,
+      options: { type: "interface", prefix: "I" },
+    },
+    { command: CREATE_ENUM_COMMAND, options: { type: "enum" } },
+    { command: CREATE_RECORD_COMMAND, options: { type: "record" } },
+    { command: CREATE_STRUCT_COMMAND, options: { type: "struct" } },
+  ];
+
+  commands.forEach(({ command, options }) => {
+    context.subscriptions.push(
+      vscode.commands.registerCommand(command, (uri: vscode.Uri) =>
+        createFileType(options, uri)
+      )
+    );
+  });
 }
 
 export function deactivate() {}

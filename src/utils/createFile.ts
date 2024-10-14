@@ -12,23 +12,37 @@ export async function createFileType(
   const prefix = options.prefix || "";
 
   const fileName = await promptForFileName(type);
+
   if (!fileName) {
-    throw new Error("File name is required");
+    vscode.window.showErrorMessage("File name is required");
+    return;
   }
 
   const fullFileName = `${prefix}${fileName}`;
+  console.log(`Creating file: ${fullFileName}`);
+
   const filePath = path.join(folderPath, `${fullFileName}.cs`);
 
   const namespace = deriveNamespace(folderPath);
-  const template = loadTemplate(type);
-  const fileContent = processTemplate(template, namespace, fullFileName);
+  vscode.window.showInformationMessage(
+    `Creating file in namespace: ${namespace}`
+  );
 
-  createFile(filePath, fileContent, type, fullFileName);
+  try {
+    const template = await loadTemplate(type);
+    const fileContent = processTemplate(template, namespace, fullFileName);
+
+    await createFile(filePath, fileContent, type, fullFileName);
+  } catch (error: any) {
+    vscode.window.showErrorMessage(`Error creating file: ${error.message}`);
+  }
 }
 
 function promptForFileName(type: string): Thenable<string | undefined> {
+  const defaultName = `New${type}`;
   return vscode.window.showInputBox({
     prompt: `Enter the name of the new ${type}`,
+    value: defaultName,
     validateInput: (value) => {
       if (!value) {
         return `${type} name cannot be empty`;
@@ -42,31 +56,25 @@ function promptForFileName(type: string): Thenable<string | undefined> {
 }
 
 function deriveNamespace(folderPath: string): string {
-  const projectName = path.basename(vscode.workspace.rootPath || "");
-  const relativePath = path.relative(
-    vscode.workspace.rootPath || "",
-    folderPath
-  );
-  const namespaceParts = [projectName, ...relativePath.split(path.sep)];
+  const projectRoot = vscode.workspace.workspaceFolders?.[0].uri.fsPath || "";
+  const relativePath = path.relative(projectRoot, folderPath);
+  const namespaceParts = relativePath.split(path.sep).filter(Boolean);
   return namespaceParts.join(".");
 }
 
-function createFile(
+async function createFile(
   filePath: string,
   fileContent: string,
   type: string,
   fileName: string
-) {
-  fs.writeFile(filePath, fileContent, (err) => {
-    if (err) {
-      vscode.window.showErrorMessage(
-        `Failed to create ${type}: ${err.message}`
-      );
-    } else {
-      vscode.window.showInformationMessage(`Created new ${type}: ${fileName}`);
-      vscode.workspace.openTextDocument(filePath).then((doc) => {
-        vscode.window.showTextDocument(doc);
-      });
-    }
-  });
+): Promise<void> {
+  try {
+    await fs.promises.writeFile(filePath, fileContent);
+    vscode.window.showInformationMessage(`Created new ${type}: ${fileName}`);
+    console.log(`File created at: ${filePath}`);
+    const doc = await vscode.workspace.openTextDocument(filePath);
+    await vscode.window.showTextDocument(doc);
+  } catch (err: any) {
+    throw new Error(`Failed to create ${type}: ${err.message}`);
+  }
 }
