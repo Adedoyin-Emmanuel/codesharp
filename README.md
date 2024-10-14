@@ -28,7 +28,7 @@ This behavior makes CodeSharp lightweight and highly optimized for C# developers
 
 ### Usage 🧰
 
-Before using CodeSharp, make sure you're in a C# or .NET related workspace. Otherwise it wouldn't work. See why [Here](#features)
+Before using CodeSharp, make sure you're in a C# or .NET related workspace. Otherwise it wouldn't work. See why [Here](https://github.com/Adedoyin-Emmanuel/codesharp?tab=readme-ov-file#features-)
 
 1. Right-click on a folder or within the file explorer and select "New C# File". ![Context Menu Illustration](./md/image-1.png)
 2. Choose the type of file you want to generate (e.g., Class, Interface, etc.).
