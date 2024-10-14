@@ -1,6 +1,6 @@
 {
   "name": "codesharp",
-  "displayName": "codesharp",
+  "displayName": "Codesharp",
   "description": "CodeSharp - A VSCode extension for creating C# files with ease. Generate classes, interfaces, structs, and more with just a click.",
   "version": "0.0.4",
   "license": "MIT",
