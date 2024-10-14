@@ -2,9 +2,10 @@
   "name": "codesharp",
   "displayName": "codesharp",
   "description": "CodeSharp - A VSCode extension for creating C# files with ease. Generate classes, interfaces, structs, and more with just a click.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "publisher": "AdedoyinEmmanuel",
+  "icon": "./images/logo.png",
   "author": {
     "name": "Adedoyin Emmanuel Adeniyi",
     "email": "hi@adedoyinemmanuel.dev",
@@ -89,16 +90,15 @@
       }
     ]
   },
-"scripts": {
+  "scripts": {
     "compile": "npm run check-types && node esbuild.js",
     "check-types": "tsc --noEmit",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "vscode:prepublish": "npm run package",
-    "package": "npm run check-types && node esbuild.js --production"
-},
-
+    "package": "standard-version && git push && npm run check-types && node esbuild.js --production"
+  },
   "devDependencies": {
     "@types/mocha": "^10.0.8",
     "@types/node": "20.x",
@@ -109,6 +109,7 @@
     "@vscode/test-electron": "^2.4.1",
     "esbuild": "^0.24.0",
     "eslint": "^9.11.1",
+    "standard-version": "^9.5.0",
     "typescript": "^5.6.2"
   },
   "dependencies": {
