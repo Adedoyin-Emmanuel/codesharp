@@ -1,12 +1,13 @@
-import * as vscode from "vscode";
 import {
   CREATE_CLASS_COMMAND,
   CREATE_ENUM_COMMAND,
+  CREATE_FILE_COMMAND,
   CREATE_INTERFACE_COMMAND,
   CREATE_RECORD_COMMAND,
   CREATE_STRUCT_COMMAND,
 } from "./constants";
 import { createFileType } from "./utils";
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
   console.log("CodeSharp is now active!");
